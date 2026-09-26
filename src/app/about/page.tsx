@@ -107,30 +107,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Corporate Milestones */}
-      <section className="bg-slate-50 border-y border-slate-200 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Growth Journey</span>
-            <h2 className="text-3xl font-extrabold text-slate-900 mt-1">Our Milestones of Innovation</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {MILESTONES.map((item, idx) => (
-              <div key={item.year} className="bg-white p-6 rounded-xl border border-slate-200 relative flex flex-col justify-between">
-                <div>
-                  <span className="text-2xl font-extrabold text-brand-600 font-mono">{item.year}</span>
-                  <h3 className="font-bold text-slate-900 text-sm mt-2">{item.title}</h3>
-                  <p className="text-xs text-slate-500 mt-2 leading-relaxed">{item.desc}</p>
-                </div>
-                <div className="pt-4 mt-4 border-t border-slate-100 text-[11px] font-mono text-slate-400">
-                  Step 0{idx + 1}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Global Supply Network */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
