@@ -8,46 +8,36 @@ interface AnimatedCounterProps {
   duration?: number;
 }
 
-export default function AnimatedCounter({ end, suffix = '', duration = 1800 }: AnimatedCounterProps) {
-  const [count, setCount] = useState(0);
+export default function AnimatedCounter({ end, suffix = '', duration = 1600 }: AnimatedCounterProps) {
+  // Initialize with 'end' so SSR renders full numbers immediately without flash of zeros
+  const [count, setCount] = useState(end);
   const ref = useRef<HTMLSpanElement>(null);
-  const [started, setStarted] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => observer.disconnect();
-  }, [started]);
-
-  useEffect(() => {
-    if (!started) return;
-
     let startTimestamp: number | null = null;
+    let animationFrameId: number;
+
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      // Ease out expo
       const ease = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(ease * end));
 
       if (progress < 1) {
-        requestAnimationFrame(step);
+        animationFrameId = requestAnimationFrame(step);
       } else {
         setCount(end);
       }
     };
 
-    requestAnimationFrame(step);
-  }, [started, end, duration]);
+    // Reset to 0 on client and run animation
+    setCount(0);
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, [end, duration]);
 
   return (
     <span ref={ref} className="font-mono">

@@ -55,7 +55,7 @@ function ProductsContent() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-extrabold tracking-tight"
           >
-            High-Purity Bio-Chemicals & Intermediates
+            High-Purity pharmaceutical intermediates and cosmetic raw materials
           </motion.h1>
 
           <motion.p

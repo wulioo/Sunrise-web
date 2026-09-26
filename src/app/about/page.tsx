@@ -39,13 +39,13 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
           <span className="text-xs font-mono uppercase tracking-widest text-brand-400 bg-brand-500/10 px-3 py-1 rounded border border-brand-500/20">
-            About Nanjing Liyang Biotech
+            About Nanjing Sunrise Biotech
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
             Pioneering Precision in Bio-Chemical Synthesis
           </h1>
           <p className="text-slate-300 text-lg max-w-3xl leading-relaxed">
-            Headquartered in Nanjing, China, Nanjing Liyang Biotech Co., Ltd. is committed to bridging green bio-manufacturing with rigorous industrial chemical scalability.
+            Headquartered in Nanjing, China, Nanjing Sunrise Biotech Co., Ltd. is committed to bridging green bio-manufacturing with rigorous industrial chemical scalability.
           </p>
         </div>
       </section>
@@ -58,7 +58,7 @@ export default function AboutPage() {
               A Reliable Global Partner for Active Ingredients & Intermediate Supply
             </h2>
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-              Since our establishment in 2016, Nanjing Liyang Biotech has evolved from a specialized regional supplier into an internationally recognized manufacturer and exporter. We serve top-tier pharmaceutical manufacturers, personal care formulation laboratories, and industrial fine chemical synthesizers worldwide.
+              Since our establishment in 2016, Nanjing Sunrise Biotech has evolved from a specialized regional supplier into an internationally recognized manufacturer and exporter. We serve top-tier pharmaceutical manufacturers, personal care formulation laboratories, and industrial fine chemical synthesizers worldwide.
             </p>
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
               Our multidisciplinary team integrates organic synthesis experts, fermentation bio-technologists, and veteran QA auditors to guarantee that every kilogram of material complies strictly with international pharmacopeia standards and customer technical dossiers.

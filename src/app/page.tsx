@@ -63,7 +63,7 @@ export default function HomePage() {
             {/* Left Content Column */}
             <motion.div
               variants={containerVariants}
-              initial="hidden"
+              initial={false}
               animate="visible"
               className="lg:col-span-7 space-y-6"
             >
@@ -93,7 +93,7 @@ export default function HomePage() {
                 variants={itemVariants}
                 className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed"
               >
-                Nanjing Liyang Biotech delivers certified pharmaceutical intermediates, high-efficacy cosmetic actives, and industrial specialty chemicals with validated COA testing and REACH/GMP compliance.
+                Nanjing Sunrise Biotech delivers certified pharmaceutical intermediates, high-efficacy cosmetic actives, and industrial specialty chemicals with validated COA testing and REACH/GMP compliance.
               </motion.p>
 
               {/* Action Buttons */}
@@ -135,9 +135,9 @@ export default function HomePage() {
 
             {/* Right Column: 3D Interactive Molecule & Live Spectrum Panel */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8 }}
               className="lg:col-span-5"
             >
               <InteractiveMolecule />
@@ -558,7 +558,7 @@ export default function HomePage() {
                 Submit RFQ / Inquiry
               </Link>
               <a
-                href="mailto:export@liyang-biotech.com"
+                href={`mailto:${COMPANY_INFO.exportEmail}`}
                 className="px-8 py-3.5 rounded-xl font-bold text-sm bg-slate-900/90 border border-slate-700 hover:bg-slate-800 text-slate-200 transition-colors"
               >
                 Email Export Team

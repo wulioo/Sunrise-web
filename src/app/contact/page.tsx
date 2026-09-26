@@ -89,9 +89,13 @@ function ContactContent() {
                 <li className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-brand-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-slate-900 font-semibold">Telephone & Hotline</strong>
-                    <span className="text-xs text-slate-600 font-mono block">{COMPANY_INFO.phone} (Main Office)</span>
-                    <span className="text-xs text-slate-500 font-mono block">{COMPANY_INFO.hotline} (WhatsApp / WeChat)</span>
+                    <strong className="block text-slate-900 font-semibold">Telephone & WhatsApp</strong>
+                    <a href={`tel:${COMPANY_INFO.phone}`} className="text-xs text-slate-600 font-mono block hover:text-brand-600">
+                      {COMPANY_INFO.phone}
+                    </a>
+                    <a href="https://wa.me/8613851859461" target="_blank" rel="noopener noreferrer" className="text-xs text-brand-600 font-mono block hover:underline">
+                      WhatsApp: {COMPANY_INFO.hotline}
+                    </a>
                   </div>
                 </li>
 
@@ -116,7 +120,7 @@ function ContactContent() {
                 </div>
                 <div>
                   <strong className="text-slate-800 block">Which Payment Terms are accepted?</strong>
-                  <p className="mt-0.5 text-slate-500">T/T Wire Transfer, Irrevocable L/C at sight, and Western Union for sample testing.</p>
+                  <p className="mt-0.5 text-slate-500">T/T Wire Transfer.</p>
                 </div>
                 <div>
                   <strong className="text-slate-800 block">What documentation accompanies each shipment?</strong>
@@ -136,7 +140,7 @@ function ContactContent() {
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900">Inquiry Received Successfully</h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to Nanjing Liyang Biotech. Our overseas technical sales manager will review your specifications and contact you at{' '}
+                    Thank you for reaching out to Nanjing Sunrise Biotech. Our overseas technical sales manager will review your specifications and contact you at{' '}
                     <strong className="text-slate-900">{formData.email}</strong> within 12 hours.
                   </p>
                   <button
@@ -151,7 +155,7 @@ function ContactContent() {
                   <div>
                     <h3 className="text-xl font-bold text-slate-900">Request for Quotation (RFQ)</h3>
                     <p className="text-xs text-slate-500 mt-1">
-                      Fill out the form below. For urgent bulk orders, you may also email directly to export@liyang-biotech.com.
+                      Fill out the form below. For urgent bulk orders, you may also email directly to {COMPANY_INFO.exportEmail}.
                     </p>
                   </div>
 

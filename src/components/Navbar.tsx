@@ -4,14 +4,15 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowUpRight, Beaker, ShieldCheck, Mail, Sparkles } from 'lucide-react';
+import { COMPANY_INFO } from '@/data/company';
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about/' },
   { name: 'Products', href: '/products/' },
   { name: 'Factory & R&D', href: '/factory/' },
-  { name: 'News', href: '/news/' },
-  { name: 'Jobs', href: '/jobs/' },
+  // { name: 'News', href: '/news/' },
+  // { name: 'Jobs', href: '/jobs/' },
   { name: 'Contact', href: '/contact/' },
 ];
 
@@ -39,7 +40,8 @@ export default function Navbar() {
         ? 'bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 shadow-2xl shadow-black/40'
         : 'bg-slate-950/80 backdrop-blur-md border-b border-slate-900'
     }`}>
-      {/* Top Banner Bar for International Credibility */}
+      {/* Top Banner Bar (Hidden) */}
+      {/* 
       <div className="bg-gradient-to-r from-brand-950 via-slate-950 to-brand-950 border-b border-brand-900/40 text-xs py-1.5 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2 text-slate-300">
           <div className="flex items-center gap-4">
@@ -53,14 +55,15 @@ export default function Navbar() {
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs font-mono">
-            <a href="mailto:export@liyang-biotech.com" className="hover:text-brand-300 transition-colors flex items-center gap-1">
-              <Mail className="w-3 h-3 text-brand-400" /> export@liyang-biotech.com
+            <a href={`mailto:${COMPANY_INFO.exportEmail}`} className="hover:text-brand-300 transition-colors flex items-center gap-1">
+              <Mail className="w-3 h-3 text-brand-400" /> {COMPANY_INFO.exportEmail}
             </a>
             <span className="hidden sm:inline text-slate-600">/</span>
             <span className="hidden sm:inline text-slate-400">Nanjing, China</span>
           </div>
         </div>
       </div>
+      */}
 
       {/* Main Navigation */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -75,13 +78,13 @@ export default function Navbar() {
           <div>
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-xl tracking-tight text-white group-hover:text-brand-300 transition-colors">
-                LIYANG
+                SUNRISE
               </span>
               <span className="px-1.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase rounded bg-brand-500/20 text-brand-300 border border-brand-500/30">
                 BIOTECH
               </span>
             </div>
-            <p className="text-[11px] text-slate-400 tracking-wider">南京立阳生物科技</p>
+            <p className="text-[11px] text-slate-400 tracking-wider">Nanjing Sunrise Biotech Co., Ltd.</p>
           </div>
         </Link>
 

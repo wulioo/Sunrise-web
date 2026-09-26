@@ -1,164 +1,331 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import {
-  Factory,
-  Beaker,
-  ShieldCheck,
-  Cpu,
+  Camera,
+  ImageIcon,
+  Maximize2,
+  Building2,
+  FlaskConical,
   Layers,
   Sparkles,
+  ShieldCheck,
   ArrowRight,
-  CheckCircle2,
-  Activity,
-  Wind,
+  X,
 } from 'lucide-react';
-import { FACTORY_FEATURES, COMPANY_INFO } from '@/data/company';
+
+interface FacilityPhoto {
+  id: string;
+  title: string;
+  titleEn: string;
+  category: 'all' | 'rd' | 'workshop' | 'qc' | 'cleanroom';
+  categoryLabel: string;
+  tag: string;
+  image?: string; // Real image path when available (e.g. /images/factory/rd-1.jpg)
+}
+
+const CATEGORIES = [
+  { key: 'all', label: 'All Photos / 全部实拍' },
+  { key: 'rd', label: 'R&D Center / 研发中心' },
+  { key: 'workshop', label: 'Synthesis Workshop / 生产车间' },
+  { key: 'qc', label: 'QC & Analytical / 质检中心' },
+  { key: 'cleanroom', label: 'Cleanroom / 洁净车间' },
+];
+
+const FACILITY_PHOTOS: FacilityPhoto[] = [
+  {
+    id: 'rd-1',
+    title: '研发中心 · 色谱分析仪器室',
+    titleEn: 'R&D Analytical Chromatography Room',
+    category: 'rd',
+    categoryLabel: '研发中心',
+    tag: 'Agilent 1260 HPLC / Workstation',
+    image: '',
+  },
+  {
+    id: 'rd-2',
+    title: '研发中心 · 合成实验室全景',
+    titleEn: 'Organic Synthesis Formulation Lab',
+    category: 'rd',
+    categoryLabel: '研发中心',
+    tag: 'Fume Hoods & Reaction Stations',
+    image: '',
+  },
+  {
+    id: 'rd-3',
+    title: '研发中心 · 液相色谱检测台',
+    titleEn: 'High Performance Liquid Chromatography',
+    category: 'rd',
+    categoryLabel: '研发中心',
+    tag: 'Method Validation & Assay Profile',
+    image: '',
+  },
+  {
+    id: 'workshop-1',
+    title: '生产车间 · 自动化反应釜阵列',
+    titleEn: 'Automated Synthesis Reactor Array',
+    category: 'workshop',
+    categoryLabel: '生产车间',
+    tag: '500L – 8,000L Glass-Lined & SS316',
+    image: '',
+  },
+  {
+    id: 'workshop-2',
+    title: '生产车间 · 高压加氢与温控系统',
+    titleEn: 'High-Pressure Reaction & Thermal Loop',
+    category: 'workshop',
+    categoryLabel: '生产车间',
+    tag: 'DCS Automated Control / -80°C~250°C',
+    image: '',
+  },
+  {
+    id: 'workshop-3',
+    title: '生产车间 · 离心分离与结晶工段',
+    titleEn: 'Centrifugation & Crystallization Section',
+    category: 'workshop',
+    categoryLabel: '生产车间',
+    tag: 'High-Efficiency Solids Separation',
+    image: '',
+  },
+  {
+    id: 'qc-1',
+    title: '质检中心 · 精密仪器光谱分析室',
+    titleEn: 'Precision Spectroscopy & QC Center',
+    category: 'qc',
+    categoryLabel: '质检中心',
+    tag: 'FTIR, GC-MS & Polarimeter',
+    image: '',
+  },
+  {
+    id: 'qc-2',
+    title: '质检中心 · 留样室与理化实验室',
+    titleEn: 'Physical & Chemical Sample Retention Room',
+    category: 'qc',
+    categoryLabel: '质检中心',
+    tag: 'Batch Traceability & Retention Files',
+    image: '',
+  },
+  {
+    id: 'cleanroom-1',
+    title: '洁净车间 · 十万级无菌烘干包装区',
+    titleEn: 'Class 100k Sterile Drying & Packing Suite',
+    category: 'cleanroom',
+    categoryLabel: '洁净车间',
+    tag: 'Cosmetic Actives & Pharma Grade Packaging',
+    image: '',
+  },
+];
 
 export default function FactoryPage() {
-  const EQUIPMENT_LIST = [
-    { name: 'Agilent 1260 Infinity II HPLC System', qty: '4 sets', purpose: 'Assay purity & related substance trace profiling' },
-    { name: 'Shimadzu GC-2010 Plus Gas Chromatograph', qty: '2 sets', purpose: 'Residual solvent determination (ICH Q3C compliant)' },
-    { name: 'Thermo Nicolet iS5 FTIR Spectrometer', qty: '1 set', purpose: 'Compound functional group molecular confirmation' },
-    { name: 'PerkinElmer Polarimeter & Melting Point App.', qty: '2 sets', purpose: 'Optical rotation for chiral intermediate evaluation' },
-    { name: 'Metrohm Karl Fischer Volumetric Titrator', qty: '2 sets', purpose: 'Ultra-accurate moisture & water content testing' },
-    { name: 'Microbiological Testing Incubators', qty: '3 sets', purpose: 'Total viable count & bioburden monitoring for cosmetic grades' },
-  ];
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [selectedPhoto, setSelectedPhoto] = useState<FacilityPhoto | null>(null);
 
-  const QA_WORKFLOW = [
-    { step: '01', title: 'IQC (Incoming Raw Materials)', desc: 'Stringent testing of base reagents, solvents, and starting materials against internal pharmacopeia standards.' },
-    { step: '02', title: 'IPQC (In-Process Reaction Control)', desc: 'Real-time TLC, HPLC, and temperature/pressure recording during intermediate synthesis and crystallization.' },
-    { step: '03', title: 'Class 100k Aseptic Processing', desc: 'Controlled atmosphere drying, centrifugal separation, and micronization inside cleanroom suites.' },
-    { step: '04', title: 'FQC & Release (Certificate of Analysis)', desc: 'Complete testing of finished product batches with full spectral data before authorized QA manager sign-off.' },
-  ];
+  const filteredPhotos =
+    activeCategory === 'all'
+      ? FACILITY_PHOTOS
+      : FACILITY_PHOTOS.filter((photo) => photo.category === activeCategory);
 
   return (
-    <div className="space-y-24 pb-20">
-      {/* Header Banner */}
-      <section className="bg-slate-950 text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
-          <span className="text-xs font-mono uppercase tracking-widest text-brand-400 bg-brand-500/10 px-3 py-1 rounded border border-brand-500/20">
-            Intelligent Manufacturing & QC Infrastructure
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-            Nanjing Production Facility & R&D Hub
+    <div className="space-y-16 pb-24 bg-slate-50/60 min-h-screen">
+      {/* Hero Header Section */}
+      <section className="bg-slate-950 text-white py-16 sm:py-20 relative overflow-hidden">
+        {/* Subtle Background Glows */}
+        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-accent-cyan/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-950/80 border border-brand-500/30 text-xs font-medium text-brand-300">
+            <Building2 className="w-3.5 h-3.5 text-brand-400" />
+            <span>Nanjing Production Base & R&D Center</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight">
+            Factory Tour & Research Facility Showcase
           </h1>
-          <p className="text-slate-300 text-lg max-w-3xl leading-relaxed">
-            Our modernized industrial synthesis park features automated DCS monitoring, advanced cleanrooms, and world-class testing laboratories to guarantee uncompromising batch consistency.
+
+          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            Take a visual tour through our certified synthesis workshops, analytical chromatography laboratories, and aseptic cleanrooms in Nanjing, China.
           </p>
+
+          {/* Quick Metrics Bar */}
+          <div className="pt-6 flex flex-wrap justify-center items-center gap-6 sm:gap-12 text-xs font-mono text-slate-400">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-brand-400" /> 12,000 m² Modern Workshops
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" /> Class 100k Cleanroom
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-cyan-400" /> Agilent / Waters QC Systems
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* Production Capacities */}
+      {/* Main Gallery Container */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
-            Scale & Specifications
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Versatile Reaction Capabilities
-          </h2>
-          <p className="text-slate-600 text-base">
-            Equipped to handle diverse reaction categories including cryogenic synthesis, high-pressure hydrogenations, halogenations, and bio-enzymatic transformations.
-          </p>
+        {/* Category Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+          {CATEGORIES.map((cat) => {
+            const isSelected = activeCategory === cat.key;
+            return (
+              <button
+                key={cat.key}
+                onClick={() => setActiveCategory(cat.key)}
+                className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                  isSelected
+                    ? 'bg-slate-900 text-white shadow-md shadow-slate-900/20 ring-2 ring-brand-500/30'
+                    : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200'
+                }`}
+              >
+                {cat.label}
+              </button>
+            );
+          })}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {FACTORY_FEATURES.map((feature, idx) => (
+        {/* 3x3 Photo Grid (Referencing Image 1) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredPhotos.map((photo) => (
             <div
-              key={feature.title}
-              className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-lg transition-all flex flex-col justify-between"
+              key={photo.id}
+              onClick={() => setSelectedPhoto(photo)}
+              className="group bg-white rounded-2xl border border-slate-200 hover:border-brand-500/60 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col cursor-pointer"
             >
-              <div>
-                <div className="text-xs font-mono font-bold text-brand-600 mb-2">Module 0{idx + 1}</div>
-                <div className="text-2xl font-extrabold text-slate-900 font-mono mb-2">{feature.metric}</div>
-                <h3 className="text-base font-bold text-slate-800 mb-2">{feature.title}</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{feature.desc}</p>
+              {/* Image Container with 4:3 Aspect Ratio */}
+              <div className="relative aspect-[4/3] w-full bg-slate-100 overflow-hidden flex items-center justify-center">
+                {photo.image ? (
+                  <img
+                    src={photo.image}
+                    alt={photo.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  /* Aesthetic Modern Placeholder State */
+                  <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200/80 border-b border-slate-200/60 relative group-hover:bg-slate-100/90 transition-colors">
+                    {/* Subtle grid pattern */}
+                    <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
+
+                    {/* Camera Icon Badge */}
+                    <div className="w-14 h-14 rounded-2xl bg-white shadow-md border border-slate-200 flex items-center justify-center text-slate-400 group-hover:text-brand-500 group-hover:scale-110 group-hover:border-brand-300 transition-all duration-300 mb-3">
+                      <Camera className="w-7 h-7" />
+                    </div>
+
+                    <span className="text-xs font-semibold text-slate-700 tracking-wide">
+                      {photo.title}
+                    </span>
+                    <span className="text-[11px] font-mono text-slate-400 mt-1">
+                      实拍图片待补充 · 建议比例 4:3
+                    </span>
+
+                    {/* Corner Tag */}
+                    <span className="absolute top-3 right-3 text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-md bg-white/90 border border-slate-200 text-slate-500 shadow-xs">
+                      {photo.categoryLabel}
+                    </span>
+                  </div>
+                )}
+
+                {/* Hover Quick Overlay with Expand Icon */}
+                <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                  <div className="w-10 h-10 rounded-full bg-white/95 text-slate-800 flex items-center justify-center shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                    <Maximize2 className="w-4 h-4 text-brand-600" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Card Caption / Label Bottom Section (Matching Image 1) */}
+              <div className="p-4 sm:p-5 flex flex-col justify-between flex-grow border-t border-slate-100 bg-white">
+                <div>
+                  <div className="flex items-center justify-between text-xs mb-1.5">
+                    <span className="font-semibold text-slate-900 group-hover:text-brand-600 transition-colors">
+                      {photo.title}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-400 font-mono tracking-tight">
+                    {photo.titleEn}
+                  </p>
+                </div>
+
+                <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                  <span className="font-mono text-brand-700 bg-brand-50 px-2 py-0.5 rounded border border-brand-200/60 font-medium">
+                    {photo.tag}
+                  </span>
+                  <span className="text-brand-600 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-medium">
+                    查看详情 →
+                  </span>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Quality Assurance Workflow */}
-      <section className="bg-slate-50 border-y border-slate-200 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Standard Operating Protocol</span>
-            <h2 className="text-3xl font-extrabold text-slate-900 mt-1">End-to-End Quality Validation</h2>
-            <p className="text-xs text-slate-500 mt-2">Every step is tracked in our computerized batch manufacturing records (BMR).</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {QA_WORKFLOW.map((step) => (
-              <div key={step.step} className="bg-white p-6 rounded-xl border border-slate-200 relative">
-                <div className="text-3xl font-extrabold text-brand-600/30 font-mono mb-2">{step.step}</div>
-                <h4 className="text-sm font-bold text-slate-900 mb-2">{step.title}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed">{step.desc}</p>
+      {/* Lightbox / Detail Modal */}
+      {selectedPhoto && (
+        <div
+          onClick={() => setSelectedPhoto(null)}
+          className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-200"
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-5 border-b border-slate-100">
+              <div>
+                <h3 className="font-bold text-slate-900 text-lg">{selectedPhoto.title}</h3>
+                <p className="text-xs text-slate-500 font-mono">{selectedPhoto.titleEn}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <button
+                onClick={() => setSelectedPhoto(null)}
+                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
 
-      {/* Laboratory Instrumentation Table */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Testing Infrastructure</span>
-            <h2 className="text-3xl font-extrabold text-slate-900 mt-1">Analytical Center Equipment Matrix</h2>
-            <p className="text-slate-600 text-sm mt-1">Calibrated routinely under ISO/IEC 17025 compliant standards.</p>
-          </div>
-        </div>
+            {/* Modal Image Area */}
+            <div className="aspect-[4/3] bg-slate-100 flex flex-col items-center justify-center p-8 text-center border-b border-slate-100">
+              {selectedPhoto.image ? (
+                <img
+                  src={selectedPhoto.image}
+                  alt={selectedPhoto.title}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="space-y-3">
+                  <div className="w-16 h-16 rounded-2xl bg-white border border-slate-200 shadow-md flex items-center justify-center mx-auto text-brand-600">
+                    <Camera className="w-8 h-8" />
+                  </div>
+                  <h4 className="text-sm font-bold text-slate-800">{selectedPhoto.title}</h4>
+                  <p className="text-xs text-slate-400 max-w-sm mx-auto">
+                    此区域用于展示实际工厂/实验室实拍照片。您只需将对应的高清图片放入项目中即可直接渲染。
+                  </p>
+                  <span className="inline-block px-3 py-1 rounded bg-slate-200 text-slate-700 text-xs font-mono font-medium">
+                    图片路径: /public/images/factory/{selectedPhoto.id}.jpg
+                  </span>
+                </div>
+              )}
+            </div>
 
-        <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white">
-          <table className="w-full text-left text-sm text-slate-600">
-            <thead className="bg-slate-900 text-white text-xs uppercase font-mono tracking-wider">
-              <tr>
-                <th className="px-6 py-4">Instrument & Model</th>
-                <th className="px-6 py-4">Deployed Units</th>
-                <th className="px-6 py-4">Analytical Function & Scope</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-200 text-xs">
-              {EQUIPMENT_LIST.map((item, idx) => (
-                <tr key={idx} className="hover:bg-slate-50 transition-colors">
-                  <td className="px-6 py-4 font-semibold text-slate-900">{item.name}</td>
-                  <td className="px-6 py-4 font-mono text-brand-700 font-bold">{item.qty}</td>
-                  <td className="px-6 py-4 text-slate-600">{item.purpose}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* EHS & Green Chemistry Commitment */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-slate-900 border border-slate-800 p-8 sm:p-12 text-white grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="space-y-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded border border-emerald-500/30">
-              Responsible Manufacturing
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold">Environmental Safety & Zero-Pollution Chemistry</h2>
-            <p className="text-sm text-slate-300 leading-relaxed">
-              We operate an on-site dual-chamber Regenerative Thermal Oxidizer (RTO) with VOC destruction efficiency over 99.5%, combined with advanced bio-contact oxidation for effluent water neutralization.
-            </p>
-            <div className="flex gap-4 pt-2 text-xs text-slate-400">
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-emerald-400" /> ISO 14001 Certified</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-emerald-400" /> ISO 45001 Occupational Safety</span>
+            {/* Modal Footer Info */}
+            <div className="p-5 bg-slate-50 flex items-center justify-between text-xs">
+              <span className="font-mono text-slate-600">
+                配置规格: <strong className="text-slate-900">{selectedPhoto.tag}</strong>
+              </span>
+              <button
+                onClick={() => setSelectedPhoto(null)}
+                className="px-4 py-2 rounded-xl bg-slate-900 text-white font-medium hover:bg-slate-800 transition-colors"
+              >
+                关闭
+              </button>
             </div>
           </div>
-          <div className="flex justify-center lg:justify-end">
-            <Link
-              href="/contact/"
-              className="px-8 py-3.5 rounded-xl font-bold text-sm bg-brand-500 hover:bg-brand-400 text-slate-950 transition-colors shadow-lg shadow-brand-500/20"
-            >
-              Request Plant Audit / Visit
-            </Link>
-          </div>
         </div>
-      </section>
+      )}
+
     </div>
   );
 }

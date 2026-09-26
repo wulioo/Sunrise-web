@@ -33,16 +33,16 @@ export interface JobOpening {
 }
 
 export const COMPANY_INFO = {
-  nameEn: 'Nanjing Liyang Biotech Co., Ltd.',
-  nameZh: '南京立阳生物科技有限公司',
+  nameEn: 'Nanjing Sunrise Biotech Co., Ltd.',
+  nameZh: 'Nanjing Sunrise Biotech Co., Ltd.',
   tagline: 'Pioneering Purity in Bio-Chemicals, APIs & Cosmetic Actives',
-  description: 'Nanjing Liyang Biotech Co., Ltd. is an innovative bio-chemical enterprise specializing in the R&D, manufacturing, and global distribution of high-purity pharmaceutical intermediates, active cosmetic ingredients, and fine chemical raw materials.',
+  description: 'Nanjing Sunrise Biotech Co., Ltd. is an innovative bio-chemical enterprise specializing in the R&D, manufacturing, and global distribution of high-purity pharmaceutical intermediates, active cosmetic ingredients, and fine chemical raw materials.',
   foundedYear: '2016',
-  headquarters: 'Jiangbei New Area High-Tech Industrial Park, Nanjing, Jiangsu Province, China',
-  email: 'sales@liyang-biotech.com',
-  exportEmail: 'export@liyang-biotech.com',
-  phone: '+86 25 8699 3820',
-  hotline: '+86 189 5188 9200',
+  headquarters: 'RM102-16, BUILDING 4, NO. 8 ORCHID ROAD, QIAOLIN STREET, PUKOU DISTRICT, NANJING CITY, JIANGSU PROVINCE',
+  email: 'Juliezhou23@outlook.com',
+  exportEmail: 's.weissen1@yahoo.com',
+  phone: '86-13851859461',
+  hotline: '86-13851859461',
   stats: [
     { label: 'Global Export Markets', value: '45+' },
     { label: 'Standard Reactor Capacity', value: '8,000L' },

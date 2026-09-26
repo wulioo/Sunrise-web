@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   images: {
     unoptimized: true,
   },
-  trailingSlash: true,
+  allowedDevOrigins: ['njsunrise.lambworker.com'],
 };
 
 export default nextConfig;
