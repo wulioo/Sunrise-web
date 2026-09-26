@@ -122,12 +122,6 @@ export default function HomePage() {
                 className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-6 text-xs text-slate-400"
               >
                 <span className="flex items-center gap-1.5 hover:text-slate-200 transition-colors">
-                  <CheckCircle className="w-4 h-4 text-brand-400" /> ISO 9001:2015 Validated
-                </span>
-                <span className="flex items-center gap-1.5 hover:text-slate-200 transition-colors">
-                  <CheckCircle className="w-4 h-4 text-brand-400" /> Class 100k Cleanrooms
-                </span>
-                <span className="flex items-center gap-1.5 hover:text-slate-200 transition-colors">
                   <CheckCircle className="w-4 h-4 text-brand-400" /> Door-to-Door Worldwide Export
                 </span>
               </motion.div>
