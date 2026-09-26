@@ -19,101 +19,100 @@ interface FacilityPhoto {
   id: string;
   title: string;
   titleEn: string;
-  category: 'all' | 'rd' | 'workshop' | 'qc' | 'cleanroom';
+  category: 'all' | 'rd' | 'workshop' | 'qc' | 'warehouse';
   categoryLabel: string;
   tag: string;
   image?: string; // Real image path when available (e.g. /images/factory/rd-1.jpg)
 }
 
 const CATEGORIES = [
-  { key: 'all', label: 'All Photos / 全部实拍' },
-  { key: 'rd', label: 'R&D Center / 研发中心' },
-  { key: 'workshop', label: 'Synthesis Workshop / 生产车间' },
-  { key: 'qc', label: 'QC & Analytical / 质检中心' },
-  { key: 'cleanroom', label: 'Cleanroom / 洁净车间' },
+  { key: 'all', label: 'All Photos' },
+  { key: 'workshop', label: 'Synthesis Workshop' },
+  { key: 'qc', label: 'QC & Analytical' },
+  { key: 'warehouse', label: 'Warehouse & Shipping' },
 ];
 
 const FACILITY_PHOTOS: FacilityPhoto[] = [
   {
-    id: 'rd-1',
-    title: '研发中心 · 色谱分析仪器室',
-    titleEn: 'R&D Analytical Chromatography Room',
-    category: 'rd',
-    categoryLabel: '研发中心',
-    tag: 'Agilent 1260 HPLC / Workstation',
-    image: '',
-  },
-  {
-    id: 'rd-2',
-    title: '研发中心 · 合成实验室全景',
-    titleEn: 'Organic Synthesis Formulation Lab',
-    category: 'rd',
-    categoryLabel: '研发中心',
-    tag: 'Fume Hoods & Reaction Stations',
-    image: '',
-  },
-  {
-    id: 'rd-3',
-    title: '研发中心 · 液相色谱检测台',
-    titleEn: 'High Performance Liquid Chromatography',
-    category: 'rd',
-    categoryLabel: '研发中心',
-    tag: 'Method Validation & Assay Profile',
-    image: '',
-  },
-  {
     id: 'workshop-1',
-    title: '生产车间 · 自动化反应釜阵列',
+    title: 'Automated Synthesis Reactor Array',
     titleEn: 'Automated Synthesis Reactor Array',
     category: 'workshop',
-    categoryLabel: '生产车间',
+    categoryLabel: 'Synthesis Workshop',
     tag: '500L – 8,000L Glass-Lined & SS316',
-    image: '',
+    image: 'https://lambworker.com/sunrise/factory/workshop-reactors.jpg',
   },
   {
     id: 'workshop-2',
-    title: '生产车间 · 高压加氢与温控系统',
-    titleEn: 'High-Pressure Reaction & Thermal Loop',
+    title: 'Centrifuge Unloading & Solids Separation',
+    titleEn: 'Centrifuge Unloading & Solids Separation',
     category: 'workshop',
-    categoryLabel: '生产车间',
-    tag: 'DCS Automated Control / -80°C~250°C',
-    image: '',
-  },
-  {
-    id: 'workshop-3',
-    title: '生产车间 · 离心分离与结晶工段',
-    titleEn: 'Centrifugation & Crystallization Section',
-    category: 'workshop',
-    categoryLabel: '生产车间',
-    tag: 'High-Efficiency Solids Separation',
-    image: '',
+    categoryLabel: 'Synthesis Workshop',
+    tag: 'Centrifuge Unloading Operation',
+    image: 'https://lambworker.com/sunrise/factory/workshop-centrifuge.jpg',
   },
   {
     id: 'qc-1',
-    title: '质检中心 · 精密仪器光谱分析室',
-    titleEn: 'Precision Spectroscopy & QC Center',
+    title: 'HPLC Chromatography & QC Workstation',
+    titleEn: 'HPLC Chromatography & QC Workstation',
     category: 'qc',
-    categoryLabel: '质检中心',
-    tag: 'FTIR, GC-MS & Polarimeter',
-    image: '',
+    categoryLabel: 'QC & Analytical',
+    tag: 'Agilent 1260 HPLC / Multi-Instrument',
+    image: 'https://lambworker.com/sunrise/factory/qc-chromatography-lab.jpg',
   },
   {
     id: 'qc-2',
-    title: '质检中心 · 留样室与理化实验室',
-    titleEn: 'Physical & Chemical Sample Retention Room',
+    title: 'Physical & Chemical Testing Lab',
+    titleEn: 'Physical & Chemical Testing Lab',
     category: 'qc',
-    categoryLabel: '质检中心',
-    tag: 'Batch Traceability & Retention Files',
-    image: '',
+    categoryLabel: 'QC & Analytical',
+    tag: 'Fume Hoods & Analytical Stations',
+    image: 'https://lambworker.com/sunrise/factory/qc-formulation-lab.jpg',
   },
   {
-    id: 'cleanroom-1',
-    title: '洁净车间 · 十万级无菌烘干包装区',
-    titleEn: 'Class 100k Sterile Drying & Packing Suite',
-    category: 'cleanroom',
-    categoryLabel: '洁净车间',
-    tag: 'Cosmetic Actives & Pharma Grade Packaging',
-    image: '',
+    id: 'warehouse-1',
+    title: 'Pallet Stretch Wrapping & Staging',
+    titleEn: 'Pallet Stretch Wrapping & Staging',
+    category: 'warehouse',
+    categoryLabel: 'Warehouse & Shipping',
+    tag: 'Export Stretch Film Packaging',
+    image: 'https://lambworker.com/sunrise/factory/workshop-pallet-wrapping.jpg',
+  },
+  {
+    id: 'warehouse-2',
+    title: '25kg Fiber Drum Staging & Logistics Dispatch',
+    titleEn: '25kg Fiber Drum Staging & Logistics Dispatch',
+    category: 'warehouse',
+    categoryLabel: 'Warehouse & Shipping',
+    tag: '25kg Standard Fiber Drums / Staged',
+    image: 'https://lambworker.com/sunrise/factory/workshop-drum-dispatch.jpg',
+  },
+  {
+    id: 'warehouse-3',
+    title: 'Heavy-Duty Strapped Pallet Packaging',
+    titleEn: 'Heavy-Duty Strapped Pallet Packaging',
+    category: 'warehouse',
+    categoryLabel: 'Warehouse & Shipping',
+    tag: 'Export Strapped Pallet Assembly',
+    image: 'https://lambworker.com/sunrise/factory/workshop-strapped-pallets.jpg',
+  },
+  {
+    id: 'warehouse-4',
+    title: 'FCL Maritime Container Loading & Stowage',
+    titleEn: 'FCL Maritime Container Loading & Stowage',
+    category: 'warehouse',
+    categoryLabel: 'Warehouse & Shipping',
+    tag: 'FCL Container Loading / Worldwide',
+    image: 'https://lambworker.com/sunrise/factory/workshop-container-loading.jpg',
+  },
+  {
+    id: 'warehouse-5',
+    title: 'Chemical Synthesis Facility Transport Fleet',
+    titleEn: 'Chemical Synthesis Facility Transport Fleet',
+    category: 'warehouse',
+    categoryLabel: 'Warehouse & Shipping',
+    tag: 'Bulk Raw Material Fleet Transport',
+    image: 'https://lambworker.com/sunrise/factory/workshop-plant-transport.jpg',
   },
 ];
 
@@ -216,7 +215,7 @@ export default function FactoryPage() {
                       {photo.title}
                     </span>
                     <span className="text-[11px] font-mono text-slate-400 mt-1">
-                      实拍图片待补充 · 建议比例 4:3
+                      Photo update in progress · 4:3 Ratio
                     </span>
 
                     {/* Corner Tag */}
@@ -252,7 +251,7 @@ export default function FactoryPage() {
                     {photo.tag}
                   </span>
                   <span className="text-brand-600 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-medium">
-                    查看详情 →
+                    View Details →
                   </span>
                 </div>
               </div>
@@ -275,7 +274,7 @@ export default function FactoryPage() {
             <div className="flex items-center justify-between p-5 border-b border-slate-100">
               <div>
                 <h3 className="font-bold text-slate-900 text-lg">{selectedPhoto.title}</h3>
-                <p className="text-xs text-slate-500 font-mono">{selectedPhoto.titleEn}</p>
+                <p className="text-xs text-slate-500 font-mono">{selectedPhoto.categoryLabel}</p>
               </div>
               <button
                 onClick={() => setSelectedPhoto(null)}
@@ -301,11 +300,8 @@ export default function FactoryPage() {
                   </div>
                   <h4 className="text-sm font-bold text-slate-800">{selectedPhoto.title}</h4>
                   <p className="text-xs text-slate-400 max-w-sm mx-auto">
-                    此区域用于展示实际工厂/实验室实拍照片。您只需将对应的高清图片放入项目中即可直接渲染。
+                    Factory and analytical lab photography. High-resolution photos are updated regularly.
                   </p>
-                  <span className="inline-block px-3 py-1 rounded bg-slate-200 text-slate-700 text-xs font-mono font-medium">
-                    图片路径: /public/images/factory/{selectedPhoto.id}.jpg
-                  </span>
                 </div>
               )}
             </div>
@@ -313,13 +309,13 @@ export default function FactoryPage() {
             {/* Modal Footer Info */}
             <div className="p-5 bg-slate-50 flex items-center justify-between text-xs">
               <span className="font-mono text-slate-600">
-                配置规格: <strong className="text-slate-900">{selectedPhoto.tag}</strong>
+                Specification: <strong className="text-slate-900">{selectedPhoto.tag}</strong>
               </span>
               <button
                 onClick={() => setSelectedPhoto(null)}
                 className="px-4 py-2 rounded-xl bg-slate-900 text-white font-medium hover:bg-slate-800 transition-colors"
               >
-                关闭
+                Close
               </button>
             </div>
           </div>
