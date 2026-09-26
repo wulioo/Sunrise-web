@@ -4,31 +4,31 @@ import { Shield, Target, Award, Users, CheckCircle2, ArrowRight, Building, Beake
 import { COMPANY_INFO } from '@/data/company';
 
 export default function AboutPage() {
-  const MILESTONES = [
+  const ORDER_STEPS = [
     {
-      year: '2016',
-      title: 'Company Foundation',
-      desc: 'Established in Nanjing Jiangbei High-Tech Zone, launching our primary fine chemical raw material trading and synthesis lab.',
+      step: '01',
+      title: 'Inquiry & Requirements',
+      desc: 'Pls let us know your quantity, specification and end use.',
     },
     {
-      year: '2018',
-      title: 'ISO 9001 & First Cleanroom',
-      desc: 'Achieved ISO 9001:2015 certification and commissioned a 1,000 m² cleanroom for pharma intermediate drying and packing.',
+      step: '02',
+      title: 'Quotation & Solution',
+      desc: 'We quote according to your requirements.',
     },
     {
-      year: '2021',
-      title: 'Bio-Fermentation & Cosmetic Expansion',
-      desc: 'Expanded into premium cosmetic active ingredients including high-purity Ectoine, Ergothioneine, and bio-fermented peptides.',
+      step: '03',
+      title: 'Order Confirmation',
+      desc: 'Customer confirms price and places formal order.',
     },
     {
-      year: '2024',
-      title: 'Global Export Milestone',
-      desc: 'Surpassed exports to over 40 countries across Europe, North America, Japan, Korea, and Southeast Asia.',
+      step: '04',
+      title: 'Payment Processing',
+      desc: 'Receipt of payment.',
     },
     {
-      year: '2026',
-      title: 'New Smart Reactor Facility',
-      desc: 'Operationalized computerized 8,000L reaction lines with dedicated Class 100k aseptic processing suites.',
+      step: '05',
+      title: 'Delivery & Shipping',
+      desc: 'We confirm delivery date and arrange delivery.',
     },
   ];
 
@@ -107,6 +107,31 @@ export default function AboutPage() {
         </div>
       </section>
 
+
+      {/* Ordering Process */}
+      <section className="bg-slate-50 border-y border-slate-200 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Ordering Process</span>
+            <h2 className="text-3xl font-extrabold text-slate-900 mt-1">How to place an order?</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+            {ORDER_STEPS.map((item) => (
+              <div key={item.step} className="bg-white p-6 rounded-xl border border-slate-200 relative flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="text-2xl font-extrabold text-brand-600 font-mono">{item.step}</span>
+                  <h3 className="font-bold text-slate-900 text-sm mt-2">{item.title}</h3>
+                  <p className="text-xs text-slate-600 mt-2 leading-relaxed">{item.desc}</p>
+                </div>
+                <div className="pt-4 mt-4 border-t border-slate-100 text-[11px] font-mono text-slate-400">
+                  Step {item.step}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Global Supply Network */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
