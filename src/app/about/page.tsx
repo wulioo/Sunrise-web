@@ -55,13 +55,13 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
             <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
-              A Reliable Global Partner for Active Ingredients & Intermediate Supply
+              About Us
             </h2>
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-              Since our establishment in 2016, Nanjing Sunrise Biotech has evolved from a specialized regional supplier into an internationally recognized manufacturer and exporter. We serve top-tier pharmaceutical manufacturers, personal care formulation laboratories, and industrial fine chemical synthesizers worldwide.
+              Nanjing Sunrise Biotech have been specializing in manufacturing 2,6-Pyridinedicarboxylic acid, 4-Hydroxy-3-nitropyridine, Protoporphyrin IX dimethyl ester, Protoporphyrin IX, Cis-2-tert-butyl-2-butenedinitrile and some other pharmaceutical intermediates. Now, our products are well sold all over the world, and are highly trusted and accepted by customers for excellent quality, which not only keeps our company competitive in the fierce market competition, but also enables us to get improved rapidly and stably.
             </p>
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-              Our multidisciplinary team integrates organic synthesis experts, fermentation bio-technologists, and veteran QA auditors to guarantee that every kilogram of material complies strictly with international pharmacopeia standards and customer technical dossiers.
+              We maintain cooperative partnerships with leading domestic pharmaceutical raw material manufacturers, and are capable of customizing products in accordance with client requirements. Deliveries can be fulfilled regardless of order volume, with guaranteed reliable quality and premium services.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200">
