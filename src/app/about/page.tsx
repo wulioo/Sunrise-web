@@ -87,19 +87,27 @@ export default function AboutPage() {
               <ul className="space-y-3.5 text-sm text-slate-300">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand-400 shrink-0 mt-0.5" />
-                  <span><strong>ISO 9001:2015 certified</strong> quality control across raw material procurement, process execution, and shipping.</span>
+                  <span><strong>Reliable Supply Chain Strength</strong></span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand-400 shrink-0 mt-0.5" />
-                  <span><strong>Class 100,000 cleanroom facilities</strong> for aseptic post-synthesis processing, crystallization, and vacuum packing.</span>
+                  <span><strong>Rigorous Quality Control System</strong></span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand-400 shrink-0 mt-0.5" />
-                  <span><strong>EU REACH & Global Regulatory Support</strong>, including full SDS/MSDS, DMF filing documentation, and third-party audit facilitation.</span>
+                  <span><strong>Complete Export Compliance Qualifications</strong></span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand-400 shrink-0 mt-0.5" />
-                  <span><strong>Kosher & Halal certified</strong> grades for cosmetic actives and dietary functional intermediates.</span>
+                  <span><strong>Custom R&amp;D &amp; Manufacturing Capability</strong></span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-brand-400 shrink-0 mt-0.5" />
+                  <span><strong>Proven Foreign&#8209;Trade Logistics &amp; Delivery</strong></span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-brand-400 shrink-0 mt-0.5" />
+                  <span><strong>Professional Technical &amp; After&#8209;sales Support</strong></span>
                 </li>
               </ul>
             </div>
