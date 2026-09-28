@@ -93,7 +93,7 @@ export default function HomePage() {
                 variants={itemVariants}
                 className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed"
               >
-                Nanjing Sunrise Biotech delivers certified pharmaceutical intermediates, high-efficacy cosmetic actives, and industrial specialty chemicals with validated COA testing and REACH/GMP compliance.
+                Nanjing Sunrise Biotech delivers certified pharmaceutical intermediates, high-efficacy cosmetic actives, and industrial specialty chemicals and complies with COA testing and quality standards.
               </motion.p>
 
               {/* Action Buttons */}
