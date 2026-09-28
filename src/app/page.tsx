@@ -344,7 +344,7 @@ export default function HomePage() {
       </section>
 
       {/* Latest Corporate News & Exhibitions */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section hidden className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-12">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Company Bulletin</span>
