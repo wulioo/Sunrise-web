@@ -247,13 +247,13 @@ function ProductsContent() {
                     <th className="py-3.5 px-5 border-r border-brand-600/60">Product Name</th>
                     <th className="py-3.5 px-4 font-mono border-r border-brand-600/60">CAS No.</th>
                     <th className="py-3.5 px-4 hidden md:table-cell border-r border-brand-600/60">Specification</th>
-                    <th className="py-3.5 px-4 text-center w-28">Order</th>
+                    <th hidden className="py-3.5 px-4 text-center w-28">Order</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200 text-slate-700">
                   {currentProducts.length === 0 ? (
                     <tr>
-                      <td colSpan={5} className="py-16 text-center text-slate-400">
+                      <td colSpan={4} className="py-16 text-center text-slate-400">
                         <Beaker className="w-8 h-8 text-slate-300 mx-auto mb-2" />
                         <p className="font-medium text-slate-600">No matching products found</p>
                         <p className="text-xs text-slate-400 mt-1">Try selecting another category or clearing search</p>
@@ -292,7 +292,7 @@ function ProductsContent() {
                               {p.purity}
                             </span>
                           </td>
-                          <td className="py-3.5 px-4 text-center" onClick={(e) => e.stopPropagation()}>
+                          <td hidden className="py-3.5 px-4 text-center" onClick={(e) => e.stopPropagation()}>
                             <Link
                               href={`/contact/?product=${encodeURIComponent(p.name)}`}
                               className="inline-flex items-center justify-center px-3.5 py-1.5 rounded-full border border-brand-500 text-brand-600 hover:bg-brand-600 hover:text-white text-xs font-semibold uppercase tracking-wider transition-all shadow-xs"
