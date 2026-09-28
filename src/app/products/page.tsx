@@ -276,7 +276,7 @@ function ProductsContent() {
                               <span className="group-hover:text-brand-700 transition-colors font-semibold">
                                 {p.name}
                               </span>
-                              <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-normal">
+                              <span hidden className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-normal">
                                 {p.categoryLabel}
                               </span>
                             </div>
