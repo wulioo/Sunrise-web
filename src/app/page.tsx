@@ -396,7 +396,7 @@ export default function HomePage() {
 
           <div className="max-w-2xl mx-auto space-y-5 relative z-10">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              Ready to Accelerate Your Formulation or API Synthesis?
+              Ready to Accelerate Your Formulation Synthesis?
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               Contact our international technical trade specialists today for batch inquiries, custom synthesis quotes, and full compliance dossiers.
