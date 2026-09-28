@@ -83,9 +83,9 @@ export default function HomePage() {
                 variants={itemVariants}
                 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-white"
               >
-                Engineered for Purity.{' '}
+                We specialize in providing overseas clients with{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-accent-cyan">
-                  Supplied for Global Science.
+                  high-purity pharmaceutical intermediates and cosmetic raw materials.
                 </span>
               </motion.h1>
 
