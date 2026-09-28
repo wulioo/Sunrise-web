@@ -126,9 +126,9 @@ export default function FactoryPage() {
       : FACILITY_PHOTOS.filter((photo) => photo.category === activeCategory);
 
   return (
-    <div className="space-y-16 pb-24 bg-slate-50/60 min-h-screen">
+    <div className="space-y-16 pt-16 pb-24 bg-slate-50/60 min-h-screen">
       {/* Hero Header Section */}
-      <section className="bg-slate-950 text-white py-16 sm:py-20 relative overflow-hidden">
+      <section hidden className="bg-slate-950 text-white py-16 sm:py-20 relative overflow-hidden">
         {/* Subtle Background Glows */}
         <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-accent-cyan/10 rounded-full blur-[120px] pointer-events-none" />
