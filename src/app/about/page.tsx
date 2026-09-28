@@ -42,7 +42,7 @@ export default function AboutPage() {
             About Nanjing Sunrise Biotech
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-            Pioneering Precision in Bio-Chemical Synthesis
+            To become a preferred partner for supplying raw materials to the global pharmaceutical and cosmetic industries.
           </h1>
           <p className="text-slate-300 text-lg max-w-3xl leading-relaxed">
             Headquartered in Nanjing, China, Nanjing Sunrise Biotech Co., Ltd. is committed to bridging green bio-manufacturing with rigorous industrial chemical scalability.
