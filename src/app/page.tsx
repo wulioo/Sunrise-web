@@ -160,7 +160,7 @@ export default function HomePage() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Pillar 1: Cosmetic Actives */}
+          {/* Pillar 1: Reliable Supply Chain */}
           <SpotlightCard className="rounded-2xl border border-slate-200 bg-white hover:border-brand-500/50 hover:shadow-2xl transition-all group">
             <div className="p-8 flex flex-col justify-between h-full">
               <div className="space-y-4">
@@ -168,36 +168,16 @@ export default function HomePage() {
                   <Sparkles className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
-                  Cosmetic Active Ingredients
+                  Reliable Supply Chain Strength
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Bio-fermentation and functional active compounds including Ectoine, Ergothioneine, Alpha-Arbutin, and Oligo Hyaluronic Acid for advanced skincare formulas.
+                  We have long-term cooperative production bases with large-scale production capacity. Key raw materials are kept in stock on a regular basis to ensure stable delivery of large-volume orders, avoid supply-interruption risks, and support long-term framework cooperation.
                 </p>
-                <ul className="space-y-2 text-xs text-slate-500 pt-2 font-medium">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-500" /> Efficacy data & stability reports available
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-500" /> Non-irritating and dermatologically tested
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-500" /> Compliant with EU & US cosmetic regulations
-                  </li>
-                </ul>
-              </div>
-              <div className="pt-6 mt-6 border-t border-slate-100">
-                <Link
-                  href="/products/?category=cosmetic"
-                  className="text-sm font-semibold text-brand-600 hover:text-brand-700 flex items-center gap-1.5 group-hover:translate-x-1 transition-all"
-                >
-                  <span>Browse Cosmetic Actives</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
               </div>
             </div>
           </SpotlightCard>
 
-          {/* Pillar 2: Pharma Intermediates */}
+          {/* Pillar 2: Rigorous Quality Control */}
           <SpotlightCard className="rounded-2xl border border-slate-200 bg-white hover:border-cyan-500/50 hover:shadow-2xl transition-all group">
             <div className="p-8 flex flex-col justify-between h-full">
               <div className="space-y-4">
@@ -205,36 +185,16 @@ export default function HomePage() {
                   <FlaskConical className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 group-hover:text-cyan-600 transition-colors">
-                  Pharmaceutical Intermediates
+                  Rigorous Quality Control System
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  High-purity key intermediates, chiral synthesis building blocks, and API precursors produced under strict quality management for global drug innovators.
+                  Whole-process quality tracking is implemented, with multiple inspections covering raw-material incoming check, production process and finished-goods release. We can provide COA certificates, MSDS and quality inspection reports. Third-party laboratory testing is supported, and our products meet international standards.
                 </p>
-                <ul className="space-y-2 text-xs text-slate-500 pt-2 font-medium">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" /> Full analytical dossier (HPLC, NMR, GC, MS)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" /> Impurity profile control below 0.1%
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" /> Complete traceability and audit support
-                  </li>
-                </ul>
-              </div>
-              <div className="pt-6 mt-6 border-t border-slate-100">
-                <Link
-                  href="/products/?category=pharmaceutical"
-                  className="text-sm font-semibold text-cyan-600 hover:text-cyan-700 flex items-center gap-1.5 group-hover:translate-x-1 transition-all"
-                >
-                  <span>Browse Pharma Catalog</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
               </div>
             </div>
           </SpotlightCard>
 
-          {/* Pillar 3: Chemical Raw Materials */}
+          {/* Pillar 3: Export Compliance Qualifications */}
           <SpotlightCard className="rounded-2xl border border-slate-200 bg-white hover:border-emerald-500/50 hover:shadow-2xl transition-all group">
             <div className="p-8 flex flex-col justify-between h-full">
               <div className="space-y-4">
@@ -242,31 +202,11 @@ export default function HomePage() {
                   <Layers className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">
-                  Fine Chemical Raw Materials
+                  Complete Export Compliance Qualifications
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Specialty organic synthesis reagents, reaction media, functional solvents, and polymer additives with reliable batch-to-batch consistency.
+                  We are well-versed in global chemical-export regulations and possess a full set of export documents. Complete documentation is available for sea and air shipments of both hazardous and non-hazardous chemicals.
                 </p>
-                <ul className="space-y-2 text-xs text-slate-500 pt-2 font-medium">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Reliable bulk vessel and ISO tank shipping
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Customized packaging & labeling options
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> REACH registration support for EU clients
-                  </li>
-                </ul>
-              </div>
-              <div className="pt-6 mt-6 border-t border-slate-100">
-                <Link
-                  href="/products/?category=chemical"
-                  className="text-sm font-semibold text-emerald-600 hover:text-emerald-700 flex items-center gap-1.5 group-hover:translate-x-1 transition-all"
-                >
-                  <span>Browse Chemical Lines</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
               </div>
             </div>
           </SpotlightCard>
