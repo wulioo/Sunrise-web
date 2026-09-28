@@ -68,12 +68,12 @@ export default function AboutPage() {
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
                 <Target className="w-6 h-6 text-brand-600 mb-2" />
                 <h4 className="font-bold text-slate-900 text-sm">Our Mission</h4>
-                <p className="text-xs text-slate-500 mt-1">To empower global healthcare and personal care with uncompromised purity and sustainable chemistry.</p>
+                <p className="text-xs text-slate-500 mt-1">We insist on excellence and provide customers with higher quality products.</p>
               </div>
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
                 <Shield className="w-6 h-6 text-brand-600 mb-2" />
                 <h4 className="font-bold text-slate-900 text-sm">Quality First</h4>
-                <p className="text-xs text-slate-500 mt-1">Zero-defect philosophy with comprehensive batch testing and full regulatory documentation.</p>
+                <p className="text-xs text-slate-500 mt-1">We stick to the&lsquo;quantity first&rsquo;company culture, establish and maintain the quantity management system which contributes to the high reputation among all the customers home and abroad.</p>
               </div>
             </div>
           </div>
