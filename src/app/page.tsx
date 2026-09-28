@@ -22,7 +22,6 @@ import { COMPANY_INFO, PRODUCTS, NEWS_LIST, FACTORY_FEATURES } from '@/data/comp
 import ParticleBackground from '@/components/ui/ParticleBackground';
 import SpotlightCard from '@/components/ui/SpotlightCard';
 import InteractiveMolecule from '@/components/ui/InteractiveMolecule';
-import AnimatedCounter from '@/components/ui/AnimatedCounter';
 
 export default function HomePage() {
   const featuredProducts = PRODUCTS.filter((p) => p.featured);
@@ -136,41 +135,6 @@ export default function HomePage() {
             >
               <InteractiveMolecule />
             </motion.div>
-          </div>
-        </div>
-
-        {/* Global Statistics Counter Banner */}
-        <div className="mt-16 border-t border-slate-800/80 bg-slate-900/60 backdrop-blur-md">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center sm:text-left">
-                <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-accent-cyan font-mono">
-                  <AnimatedCounter end={45} suffix="+" />
-                </div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Global Export Markets</div>
-              </div>
-
-              <div className="text-center sm:text-left">
-                <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-accent-cyan font-mono">
-                  <AnimatedCounter end={8000} suffix="L" />
-                </div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Standard Reactor Capacity</div>
-              </div>
-
-              <div className="text-center sm:text-left">
-                <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-accent-cyan font-mono">
-                  <AnimatedCounter end={320} suffix="+" />
-                </div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Active Catalog Products</div>
-              </div>
-
-              <div className="text-center sm:text-left">
-                <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-accent-cyan font-mono">
-                  <span className="font-mono">99.8%</span>
-                </div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Quality Acceptance Rate</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

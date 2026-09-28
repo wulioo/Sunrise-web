@@ -83,17 +83,17 @@ export default function InteractiveMolecule() {
 
         {/* Technical Data Columns */}
         <div className="grid grid-cols-2 gap-3 text-xs font-mono mb-5">
-          <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800">
+          <div className="min-w-0 p-2.5 rounded-lg bg-slate-950/60 border border-slate-800">
             <span className="text-slate-500 block text-[10px] uppercase">Compound</span>
-            <span className="text-slate-200 font-bold">Ectoine Natural</span>
+            <span className="block break-words text-slate-200 font-bold">2,6-Pyridinedicarboxylic acid</span>
           </div>
           <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800">
             <span className="text-slate-500 block text-[10px] uppercase">CAS Number</span>
-            <span className="text-brand-300 font-bold">96702-03-3</span>
+            <span className="text-brand-300 font-bold">499-83-2</span>
           </div>
           <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800">
             <span className="text-slate-500 block text-[10px] uppercase">QC Standard</span>
-            <span className="text-slate-200">ISO/GMP Tested</span>
+            <span className="text-slate-200">Enterprise Standard</span>
           </div>
           <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800">
             <span className="text-slate-500 block text-[10px] uppercase">Batch Status</span>
@@ -108,7 +108,7 @@ export default function InteractiveMolecule() {
         <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
           <span className="text-slate-400">Export Packing: 1kg / 25kg Drum</span>
           <Link
-            href="/contact/?product=Ectoine"
+            href={`/contact/?product=${encodeURIComponent('2,6-Pyridinedicarboxylic acid')}`}
             className="text-brand-300 hover:text-white font-semibold flex items-center gap-1 group/link"
           >
             <span>Request Full COA</span>
